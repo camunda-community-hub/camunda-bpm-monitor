@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class ExpressionFunctions {
 
     public String getRandomDateWithinSeconds(int seconds) {
-        ZonedDateTime d = ZonedDateTime.now().plusSeconds(new Random().nextInt(5) + 1);
+        ZonedDateTime d = ZonedDateTime.now().plusSeconds(new Random().nextInt(seconds) + 1);
         return DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(d);
     }
 

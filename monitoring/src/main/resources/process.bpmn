@@ -64,6 +64,9 @@
     <bpmn:sequenceFlow id="SequenceFlow_0cpbjle" sourceRef="Task_0iwq6wt" targetRef="EndEvent_0k4jg1s" />
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_06sq7y8</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1jejk7n">
+        <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">R/PT5S</bpmn:timeCycle>
+      </bpmn:timerEventDefinition>
     </bpmn:startEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -143,7 +146,7 @@
         <di:waypoint x="460" y="510" />
         <di:waypoint x="542" y="510" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="StartEvent_1vw5zej_di" bpmnElement="StartEvent_1">
+      <bpmndi:BPMNShape id="StartEvent_0higg0y_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="152" y="209" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>

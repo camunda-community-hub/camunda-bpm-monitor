@@ -44,6 +44,7 @@ public class ProcessEngineQueryMonitor {
                 .register(meterRegistry);
         processInstanceRunningSuspendedCountGauge = MultiGauge
                 .builder("camunda.process.instances.running.suspended.total").register(meterRegistry);
+        updateProcessInstanceGauges();
 
         // Incident monitors
         incidentOpenCountGauge = MultiGauge.builder("camunda.incidents.open.total").register(meterRegistry);
@@ -51,6 +52,7 @@ public class ProcessEngineQueryMonitor {
                 .register(meterRegistry);
         incidentOpenNewestAgeSecondsGauge = MultiGauge.builder("camunda.incidents.newest.age.seconds")
                 .register(meterRegistry);
+        updateIncidentGauges();
     }
 
     @Scheduled(fixedDelay = 10000)
