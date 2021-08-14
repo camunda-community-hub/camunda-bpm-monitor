@@ -3,7 +3,7 @@ services:
   process:
     image: camundamonitoring
     deploy:
-      replicas: 1
+      replicas: 3
     ports:
       - "8080:8080"
     networks:
@@ -13,6 +13,20 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/process-engine
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: admin
+  process-monitoring:
+    image: camundamonitoring
+    deploy:
+      replicas: 1
+    networks:
+      - camunda-overlay
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/process-engine
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_PROFILES_ACTIVE: monitoring
 
   db:
     image: postgres
@@ -39,8 +53,9 @@ services:
       - "9090:9090"
     volumes:
       - type: bind
-        source: ./prometheus.yml
-        target: /etc/prometheus/prometheus.yml
+        source: ./prometheus
+        target: /etc/prometheus
+
     networks:
       - camunda-overlay
 

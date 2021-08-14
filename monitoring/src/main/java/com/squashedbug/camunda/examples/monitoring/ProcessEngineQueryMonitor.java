@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.runtime.Incident;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -21,7 +22,7 @@ import io.micrometer.core.instrument.MultiGauge;
 import io.micrometer.core.instrument.Tags;
 
 @Component
-// @Profile("query-monitor")
+@Profile("monitoring")
 public class ProcessEngineQueryMonitor {
 
     @Autowired
@@ -38,6 +39,7 @@ public class ProcessEngineQueryMonitor {
     MultiGauge incidentOpenNewestAgeSecondsGauge;
 
     @PostConstruct
+
     public void init() {
         // Process Instance monitors
         processInstanceRunningCountGauge = MultiGauge.builder("camunda.process.instances.running.total")

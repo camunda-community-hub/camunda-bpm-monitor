@@ -10,13 +10,13 @@ import org.springframework.stereotype.Component;
 import io.micrometer.core.instrument.MeterRegistry;
 
 @Component
-public class MonitorListener {
+public class MonitorHistoryListener {
 
     private TaggedCounter perProcessDefinitionStart;
     private TaggedCounter perProcessDefinitionEnd;
 
     @Autowired
-    public MonitorListener(MeterRegistry meterRegistry) {
+    public MonitorHistoryListener(MeterRegistry meterRegistry) {
         perProcessDefinitionStart = new TaggedCounter("camunda.process.instances.start", "process.definition.id",
                 meterRegistry);
         perProcessDefinitionEnd = new TaggedCounter("camunda.process.instances.end", "process.definition.id",
