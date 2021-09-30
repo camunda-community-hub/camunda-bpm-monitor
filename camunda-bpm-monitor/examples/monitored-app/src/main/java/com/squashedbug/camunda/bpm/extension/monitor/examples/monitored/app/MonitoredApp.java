@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 		"com.squashedbug.camunda.bpm.monitor" })
 */
 @SpringBootApplication
-@EnableMonitoring
+@com.squashedbug.camunda.bpm.monitor.EnableMonitoring
 public class MonitoredApp {
 
 	public static void main(String[] args) {
