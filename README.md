@@ -36,3 +36,14 @@ public class MyCamundaApp {
 MIT License
 # Maintainer
  - [bsorahan](https://github.com/bsorahan)
+
+ # Development
+ ## Maven Central Deployment
+ The project uses the maven-release-plugin to deploy artifacts to [OSSRH](https://central.sonatype.org/publish/publish-guide/) and promote them to [Maven Central](https://search.maven.org/)
+
+ 1. Clean
+ ``` sh
+mvn release:clean
+mvn release:prepare
+mvn release:perform
+ ```
