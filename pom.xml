@@ -21,7 +21,7 @@
 	</dependencyManagement>
 	<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
 	<artifactId>camunda-bpm-spring-boot-monitor-root</artifactId>
-	<version>0.1.6-SNAPSHOT</version>
+	<version>0.1.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
 		<java.version>11</java.version>
@@ -40,8 +40,8 @@
 		<url>https://github.com/bsorahan/camunda-bpm-monitor</url>
 		<connection>scm:git:https://github.com/bsorahan/camunda-bpm-monitor.git</connection>
 		<developerConnection>scm:git:https://github.com/bsorahan/camunda-bpm-monitor.git</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 	<build>
 		<plugins>
 			<plugin>
