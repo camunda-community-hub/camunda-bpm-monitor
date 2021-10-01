@@ -16,26 +16,116 @@
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
-			<!-- modules -->
-			<dependency>
-				<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
-				<artifactId>camunda-bpm-spring-boot-monitor-extension</artifactId>
-				<version>${project.version}</version>
-				<scope>provided</scope>
-			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 	<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
 	<artifactId>camunda-bpm-spring-boot-monitor-root</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
 		<java.version>11</java.version>
+		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 	<modules>
 		<module>extension</module>
-		<module>examples</module>
 	</modules>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<scm>
+		<url>https://github.com/bsorahan/camunda-bpm-monitor</url>
+		<connection>scm:git:https://github.com/bsorahan/camunda-bpm-monitor.git</connection>
+		<developerConnection>scm:git:https://github.com/bsorahan/camunda-bpm-monitor.git</developerConnection>
+	</scm>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<releaseProfiles>release</releaseProfiles>
+					<goals>deploy</goals>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>examples</id>
+			<modules>
+				<module>examples</module>
+			</modules>
+
+		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.8</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>false</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>3.0.1</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<configuration>
+							<source>${java.version}</source>
+						</configuration>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 
 </project>

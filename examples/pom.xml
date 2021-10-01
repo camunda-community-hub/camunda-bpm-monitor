@@ -4,11 +4,15 @@
 	<parent>
 		<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
 		<artifactId>camunda-bpm-spring-boot-monitor-root</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.1.4-SNAPSHOT</version>
 	</parent>
 	<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
 	<artifactId>camunda-bpm-spring-boot-monitor-examples-root</artifactId>
 	<packaging>pom</packaging>
+
+	<properties>
+		<maven.deploy.skip>true</maven.deploy.skip>
+	</properties>
 	<modules>
 		<module>monitored-app</module>
 	</modules>

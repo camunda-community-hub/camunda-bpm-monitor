@@ -4,11 +4,27 @@
 	<parent>
 		<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
 		<artifactId>camunda-bpm-spring-boot-monitor-root</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.1.4-SNAPSHOT</version>
 	</parent>
 	<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
-	<artifactId>camunda-bpm-spring-boot-monitor-extension</artifactId>
+	<artifactId>camunda-bpm-spring-boot-monitor</artifactId>
 	<packaging>jar</packaging>
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>This extensions allows you to easily add application monitoring for your Camunda project on Spring Boot.</description>
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+	<url>https://github.com/bsorahan/camunda-bpm-monitor</url>
+	<developers>
+		<developer>
+			<id>bsorahan</id>
+			<name>Ben Sorahan</name>
+			<url>https://github.com/bsorahan</url>
+		</developer>
+	</developers>
 	<dependencies>
 		<dependency>
 			<groupId>org.camunda.bpm.springboot</groupId>
