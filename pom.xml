@@ -21,7 +21,7 @@
 	</dependencyManagement>
 	<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
 	<artifactId>camunda-bpm-spring-boot-monitor-root</artifactId>
-	<version>0.1.5-SNAPSHOT</version>
+	<version>0.1.7-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
 		<java.version>11</java.version>
@@ -78,7 +78,7 @@
 						<configuration>
 							<serverId>ossrh</serverId>
 							<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>false</autoReleaseAfterClose>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
 						</configuration>
 					</plugin>
 					<plugin>
@@ -122,7 +122,33 @@
 							</execution>
 						</executions>
 					</plugin>
-
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>3.0.1</version>
+						<executions>
+							<execution>
+								<id>readme-md</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.basedir}</directory>
+											<includes>
+												<include>README.md</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+									<encoding>UTF-8</encoding>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>

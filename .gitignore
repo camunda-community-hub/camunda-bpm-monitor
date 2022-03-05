@@ -1,9 +1,10 @@
-HELP.md
+### MAVEN ###
 target/
 **/.mvn/
 !**/src/main/**/target/
 !**/src/test/**/target/
 **/pom.xml.versionsBackup
+release.properties
 
 ### STS ###
 .apt_generated
