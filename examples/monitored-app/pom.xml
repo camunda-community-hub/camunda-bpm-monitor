@@ -4,16 +4,21 @@
 	<parent>
 		<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
 		<artifactId>camunda-bpm-spring-boot-monitor-examples-root</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.1.7-SNAPSHOT</version>
 	</parent>
 	<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
 	<artifactId>camunda-bpm-spring-boot-monitor-examples-monitored-app</artifactId>
 	<packaging>jar</packaging>
 
+	<properties>
+		<maven.deploy.skip>true</maven.deploy.skip>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
-			<artifactId>camunda-bpm-spring-boot-monitor-extension</artifactId>
+			<artifactId>camunda-bpm-spring-boot-monitor</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.camunda.bpm.springboot</groupId>
@@ -86,6 +91,17 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+
 		</plugins>
 	</build>
 

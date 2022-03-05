@@ -5,11 +5,11 @@ rule_files:
   - prometheus.rules.yml
 
 scrape_configs:
-  - job_name: 'process-service'
+  - job_name: "my-monitored-app"
     dns_sd_configs:
       - names:
-          - 'tasks.process'
-          - 'process-monitoring'
-        type: 'A'
+          - "tasks.my-monitored-app"
+          - "my-monitored-app-snapshot-enabled"
+        type: "A"
         port: 8080
-    metrics_path: '/actuator/prometheus'
+    metrics_path: "/actuator/prometheus"

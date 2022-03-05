@@ -1,7 +1,7 @@
 version: "3.9"
 services:
-  process:
-    image: camundamonitoring
+  my-monitored-app:
+    image: my-monitored-app
     deploy:
       replicas: 3
     ports:
@@ -13,11 +13,10 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/process-engine
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: admin
-      SPRING_PROFILES_ACTIVE: monitoring
       CAMUNDA_MONITORING_SNAPSHOT_ENABLED: "false"
 
-  process-monitoring:
-    image: camundamonitoring
+  my-monitored-app-snapshot-enabled:
+    image: my-monitored-app
     deploy:
       replicas: 1
     networks:
@@ -29,6 +28,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/process-engine
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: admin
+      CAMUNDA_MONITORING_SNAPSHOT_ENABLED: "true"
 
 
   db:
@@ -41,6 +41,7 @@ services:
       - db-data:/var/lib/postgresql/data
     networks:
       - camunda-overlay
+
   adminer:
     image: adminer
     ports:

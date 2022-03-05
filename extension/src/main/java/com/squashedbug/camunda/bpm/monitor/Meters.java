@@ -1,5 +1,8 @@
 package com.squashedbug.camunda.bpm.monitor;
 
+/**
+ * Meters to expose
+ */
 public enum Meters {
 
     PROCESS_INSTANCES_STARTED("camunda.process.instances.started"),

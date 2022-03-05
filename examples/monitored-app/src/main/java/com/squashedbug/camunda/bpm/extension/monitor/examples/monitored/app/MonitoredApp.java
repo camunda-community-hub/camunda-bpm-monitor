@@ -1,14 +1,8 @@
 package com.squashedbug.camunda.bpm.extension.monitor.examples.monitored.app;
 
-import com.squashedbug.camunda.bpm.monitor.EnableMonitoring;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/*
-@SpringBootApplication(scanBasePackages = { "com.squashedbug.camunda.bpm.extension.monitor",
-		"com.squashedbug.camunda.bpm.monitor" })
-*/
 @SpringBootApplication
 @com.squashedbug.camunda.bpm.monitor.EnableMonitoring
 public class MonitoredApp {
