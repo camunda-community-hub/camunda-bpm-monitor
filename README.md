@@ -12,7 +12,7 @@ Quick start guide for Maven project
 <dependency>
     <groupId>com.squashedbug.camunda.bpm.extension.monitor</groupId>
     <artifactId>camunda-bpm-spring-boot-monitor</artifactId>
-    <version>0.1.6</version>
+    <version>0.1.7</version>
 </dependency>
 ```
 2. Add the `@EnableMonitoring` annotation to your application entrypoint class.
