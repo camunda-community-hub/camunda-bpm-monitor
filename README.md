@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/Lifecycle-Incubating-blue)](https://github.com/Camunda-Community-Hub/community/blob/main/extension-lifecycle.md#incubating-)
+[![](https://img.shields.io/badge/Lifecycle-Incubating-blue)](https://github.com/Camunda-Community-Hub/community/blob/main/extension-lifecycle.md#incubating-) ![](https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%207-26d07c)
 # Introduction
 This extensions allows you to easily add application monitoring for your Camunda project on Spring Boot.
 
